@@ -8,9 +8,7 @@ import Header from './components/Header.vue';
 </template>
 
 <style scoped>
-.content{
-  padding: 2rem 3rem;
-}
+
 </style>
 
 
