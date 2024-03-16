@@ -1,27 +1,20 @@
 <script setup>
-
+import Header from './components/Header.vue';
 
 </script>
 
 <template>
-  <header>
-    <div>Vue Storage</div>
-    <div>
-      <ul>
-        <li>Home</li>
-      </ul>
-    </div>
-  </header>
-  <RouterView/>
+  <Header/>
+  <div class="content">
+    <RouterView/>
+
+  </div>
 </template>
 
 <style scoped>
-header{
-  display: flex;
-  padding: 0 2rem;
-  flex-direction: row;
-  border-bottom: 1px solid #ddd;
+.content{
+  padding: 2rem 3rem;
 }
-
-
 </style>
+
+

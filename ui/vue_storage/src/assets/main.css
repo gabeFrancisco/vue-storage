@@ -1,9 +1,9 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
   font-weight: normal;
 }
 
@@ -16,8 +16,10 @@ a,
 }
 
 @media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+  a:hover { 
+    /* background-color: hsla(160, 100%, 37%, 0.2); */
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 
@@ -32,5 +34,40 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem; */
   }
+}
+
+button{
+  background-color: none;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.rounded{
+  border-radius: 5px;
+}
+
+.bg-blue{
+  background-color: #00aef6;
+}
+
+.bg-white{
+  background-color: #fff;
+}
+
+.bg-green{
+  background-color:  #5cd8b3;
+}
+
+.bg-green:hover{
+  background-color:  #34bd94;
+}
+
+.text-white{
+  color: #fff;
+}
+
+.text-slate{
+  color: #222;
 }
 
