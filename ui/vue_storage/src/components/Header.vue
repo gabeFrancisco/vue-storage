@@ -1,7 +1,7 @@
 <script setup>
 
 function message(){
-    alert("clicked!")
+    window.location.href = "/login"
 }
 
 </script>
@@ -18,7 +18,7 @@ function message(){
             <div>
                 <ul>
                     <li><router-link to="/">Home</router-link></li>
-                    <li><router-link to="/products">Products</router-link></li>
+                    <li><router-link to="/dashboard/products">Products</router-link></li>
                 </ul>
             </div>
         </div>

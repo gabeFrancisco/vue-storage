@@ -1,9 +1,15 @@
 ;
 import { createWebHistory, createRouter } from "vue-router";
 
-const routes = [
+const routes = [ 
   { path: "/", component: () => import("./views/HomeView.vue")},
-  { path: "/products", component: () => import("./views/ProductsView.vue")}
+  { path: "/login", component: () => import("./views/LoginView.vue")},
+  { path: '/dashboard', component: () => import("./views/DashboardView.vue"), children: [
+    {
+      path: 'products',
+      component: () => import("./views/ProductsView.vue")
+    }
+  ]}
 ];
 
 const router = createRouter({
