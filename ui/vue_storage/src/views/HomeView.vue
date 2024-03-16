@@ -13,7 +13,7 @@ const word = ref("God bless you!")
         <h3>Hello! I made this app for Vue.JS studies. I covered all the offical Vue docs!</h3>
         
         <br/>
-        <p>This study will cover Composition API, Vue Router, Pinia state management and Fetch API.</p>
+        <p>This study will cover Composition API, Vue Router, Forms, Pinia state management and Fetch API.</p>
         <p>With these resources in mind, I made a complete CRUD app for a shop product management.</p>
 
         <br/>

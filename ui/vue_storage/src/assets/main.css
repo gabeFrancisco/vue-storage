@@ -48,7 +48,11 @@ button{
 }
 
 .bg-blue{
-  background-color: #00aef6;
+  background-color: #48aeda;
+}
+
+.bg-blue:hover{
+  background-color: #2a90bb;
 }
 
 .bg-white{
