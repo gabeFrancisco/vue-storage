@@ -1,5 +1,9 @@
 <script setup>
 
+import { useUserStore } from '@/store/userStore';
+
+const { user, isLogged }  = useUserStore();
+
 function message(){
     window.location.href = "/login"
 }
@@ -15,11 +19,14 @@ function message(){
                     Vue Storage
                 </h3>
             </div>
-            <div>
+            <div v-if="isLogged">
                 <ul>
                     <li><router-link to="/">Home</router-link></li>
                     <li><router-link to="/dashboard/products">Products</router-link></li>
                 </ul>
+            </div>
+            <div v-else>
+                dasd
             </div>
         </div>
         <div>

@@ -1,7 +1,16 @@
 <script setup>
-import { ref } from 'vue'
 
-const word = ref("God bless you!")
+import { useUserStore } from '@/store/userStore';
+import { useRouter } from 'vue-router';
+
+const store = useUserStore();
+const router = useRouter();
+
+const { isLogged } = store
+if(isLogged){
+    router.replace("/dashboard/products")
+}
+
 
 </script>
 
@@ -18,6 +27,7 @@ const word = ref("God bless you!")
 
         <br/>
         <h3>To use the whole app, you need to sign in<a href="/login">here!</a></h3>
+
     </div>
 </template>
 
