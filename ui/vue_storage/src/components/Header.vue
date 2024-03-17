@@ -1,11 +1,16 @@
 <script setup>
 
 import { useUserStore } from '@/store/userStore';
+import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia';
 
-const { user, isLogged }  = useUserStore();
+const userStore = useUserStore();
+const router = useRouter();
+const { user } = storeToRefs(userStore)
 
-function message(){
-    window.location.href = "/login"
+function handleSignout() {
+    userStore.signout();
+    router.replace("/")
 }
 
 </script>
@@ -19,18 +24,14 @@ function message(){
                     Vue Storage
                 </h3>
             </div>
-            <div v-if="isLogged">
-                <ul>
-                    <li><router-link to="/">Home</router-link></li>
-                    <li><router-link to="/dashboard/products">Products</router-link></li>
-                </ul>
-            </div>
-            <div v-else>
-                dasd
-            </div>
+            <ul>
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/dashboard/products">Products</router-link></li>
+            </ul>
         </div>
-        <div>
-            <button @click="message()" class="text-white bg-green rounded">Login</button>
+        <div class="header-nav">
+            <small>Bem vindo {{ user.username }}</small>
+            <button @click="handleSignout()" class="text-white bg-green rounded">Logout</button>
         </div>
     </header>
 </template>
@@ -65,8 +66,14 @@ header h3 {
     font-weight: bolder;
 }
 
-header .header-nav{
+header .header-nav {
     display: flex;
     flex-direction: row;
+    align-content: baseline;
+    align-items: center;
+}
+
+button{
+    margin: 0 0 0 1rem;
 }
 </style>

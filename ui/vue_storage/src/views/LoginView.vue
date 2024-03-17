@@ -1,6 +1,10 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useUserStore } from '@/store/userStore';
 
+const router = useRouter();
+const userStore = useUserStore();
 const username = ref("")
 const password = ref("")
 
@@ -9,7 +13,8 @@ function login(){
         alert("Please enter all credentials data below!")
     }
     else{
-        // alert(JSON.stringify(this.username))
+        userStore.signin(username, password)
+        router.replace('/dashboard/products')
     }
 }
 
@@ -26,7 +31,7 @@ function login(){
                 </div>
                 <div class="form-input">
                     <label for="">Password</label>
-                    <input type="text" v-model="password">
+                    <input type="password" v-model="password">
                 </div>
                 <div class="buttons">
                     <button type="button" @click="login()" class="bg-blue text-white rounded">Submit!</button>

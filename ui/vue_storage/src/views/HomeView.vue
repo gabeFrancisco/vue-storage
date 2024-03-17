@@ -27,6 +27,7 @@ if(isLogged){
 
         <br/>
         <h3>To use the whole app, you need to sign in<a href="/login">here!</a></h3>
+        {{ JSON.stringify(store) }}
 
     </div>
 </template>
