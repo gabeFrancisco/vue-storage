@@ -8,12 +8,12 @@ const userStore = useUserStore();
 const username = ref("")
 const password = ref("")
 
-function login(){
-    if(this.username === "" || this.password === ""){
+function login() {
+    if (this.username === "" || this.password === "") {
         alert("Please enter all credentials data below!")
     }
-    else{
-        userStore.signin(username, password)
+    else {
+        userStore.signin(username.value, password)
         router.replace('/dashboard/products')
     }
 }
@@ -68,7 +68,7 @@ function login(){
     align-content: baseline;
 }
 
-.buttons{
+.buttons {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;

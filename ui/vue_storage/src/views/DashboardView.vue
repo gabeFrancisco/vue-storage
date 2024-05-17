@@ -11,11 +11,11 @@ const { isLogged } = storeToRefs(store)
 
 onBeforeMount(() => {
   const user = localStorage.getItem('user')
-  alert(user != null)
+  // alert(user != null)
   if (user) {
     store.loadUser();
   }
-  else{
+  else {
     router.replace('/')
     store.signout();
   }
@@ -23,17 +23,17 @@ onBeforeMount(() => {
 </script>
 
 <template>
-    <div class="dashboard">
+  <div class="dashboard">
 
-        <Header />
-        <div class="content">
-            <router-view />
-        </div>
+    <Header />
+    <div class="content">
+      <router-view />
     </div>
+  </div>
 </template>
 
 <style scoped>
 .content {
-    padding: 2rem 3rem;
+  padding: 2rem 3rem;
 }
 </style>

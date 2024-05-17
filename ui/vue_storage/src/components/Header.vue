@@ -2,23 +2,19 @@
 
 import { useUserStore } from '@/store/userStore';
 import { useRouter } from 'vue-router';
-import { storeToRefs } from 'pinia';
 
 const userStore = useUserStore();
 const router = useRouter();
-const { user } = storeToRefs(userStore)
 
 function handleSignout() {
     userStore.signout();
     router.replace("/")
 }
-
 </script>
 
 <template>
     <header>
         <div class="header-nav">
-
             <div>
                 <h3>
                     Vue Storage
@@ -30,7 +26,7 @@ function handleSignout() {
             </ul>
         </div>
         <div class="header-nav">
-            <small>Bem vindo {{ user.username }}</small>
+            <small>Bem vindo {{ userStore.user?.username }}</small>
             <button @click="handleSignout()" class="text-white bg-green rounded">Logout</button>
         </div>
     </header>
@@ -44,7 +40,19 @@ header {
     padding: 10px 2rem;
     border-bottom: 1px solid #ddd;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    background-image: linear-gradient(to right, #251cff, #023cff, #0051ff, #0063ff, #2372ff, #0083ff, #0091ff, #009fff, #00aef6, #00b8e3, #00bfca, #41c4b2);
+    background-image: linear-gradient(to right,
+            #251cff,
+            #023cff,
+            #0051ff,
+            #0063ff,
+            #2372ff,
+            #0083ff,
+            #0091ff,
+            #009fff,
+            #00aef6,
+            #00b8e3,
+            #00bfca,
+            #41c4b2);
     color: white
 }
 
@@ -73,7 +81,7 @@ header .header-nav {
     align-items: center;
 }
 
-button{
+button {
     margin: 0 0 0 1rem;
 }
 </style>
