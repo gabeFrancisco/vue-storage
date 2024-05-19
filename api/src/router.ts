@@ -5,4 +5,5 @@ export const router = Router();
 
 const authController = new AuthController();
 
-router.get("/", authController.login);
+router.get("/auth", authController.login);
+router.post("/auth/register", authController.register);
