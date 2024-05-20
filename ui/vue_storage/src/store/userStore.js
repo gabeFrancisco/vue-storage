@@ -25,11 +25,10 @@ export const useUserStore = defineStore("user", {
       (this.isLogged = false), (this.user = null);
     },
     loadUser() {
-      const user = localStorage.getItem("user");
+      const user = JSON.parse(localStorage.getItem("user"));
       if (user) {
-        console.log(JSON.parse(user));
-        // this.user.username = user.username;
-        // this.isLogged = true;
+        this.user.username = user.username;
+        this.isLogged = true;
       }
     },
   },

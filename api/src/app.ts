@@ -2,7 +2,9 @@ import express from "express";
 import { router } from "./router";
 import cookieParser from "cookie-parser";
 import { handleError } from "./middlewares/handleError";
-import bodyParser from "body-parser";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 

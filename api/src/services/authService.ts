@@ -1,8 +1,17 @@
 import db from "../db";
 
-export class AuthService {
-  async registerUser(username: string, email: string, password: string) {
-    const query = `insert into users values (null, "${username}", "${email}", "${password}", "", "");`;
-    return db.query(query);
+async function registerUser(
+  username: string,
+  email: string,
+  password: string
+): Promise<boolean> {
+  try {
+    const query = `insert into public.users values (null, "${username}", "${email}", "${password}", "", "");`;
+    return await db.query(query).then(() => true);
+  } catch (ex) {
+    console.log(ex);
+    return false;
   }
 }
+
+export default { registerUser };

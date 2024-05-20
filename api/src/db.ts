@@ -1,10 +1,11 @@
 import dotenv from "dotenv";
 import pg from "pg";
-const { Client } = pg;
+const { Pool } = pg;
 
 dotenv.config();
+console.log(process.env.PG_USER);
 
-const db = new Client({
+const db = new Pool({
   user: process.env.PG_USER,
   host: process.env.PG_HOST,
   database: process.env.PG_DATABASE,

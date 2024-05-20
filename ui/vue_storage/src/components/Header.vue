@@ -1,10 +1,15 @@
 <script setup>
 
+import { onBeforeMount } from 'vue';
 import { useUserStore } from '@/store/userStore';
 import { useRouter } from 'vue-router';
 
 const userStore = useUserStore();
 const router = useRouter();
+
+onBeforeMount(() => {
+    userStore.loadUser();
+})
 
 function handleSignout() {
     userStore.signout();
