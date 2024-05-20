@@ -1,9 +1,9 @@
 create database vuestorage;
 create table users(
-    id integer primary key,
+    id serial,
     username varchar(15) not null,
     email varchar(50) not null,
-    password text,
+    password text not null,
     createdAt timestamp,
     updatedAt timestamp
 );

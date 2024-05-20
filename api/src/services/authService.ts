@@ -6,8 +6,9 @@ async function registerUser(
   password: string
 ): Promise<boolean> {
   try {
-    const query = `insert into public.users values (null, "${username}", "${email}", "${password}", "", "");`;
-    return await db.query(query).then(() => true);
+    const query = `insert into public.users(id, username, email, password, createdAt) values (default, '${username}', '${email}', '${password}', '${new Date().toISOString()}');`;
+    console.log(query);
+    return await db.raw(query);
   } catch (ex) {
     console.log(ex);
     return false;
