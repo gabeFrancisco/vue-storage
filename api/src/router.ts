@@ -4,6 +4,7 @@ import { authMiddleware } from "./middlewares/auth.middleware";
 export const router = Router();
 
 //User endpoints
-router.get("/users/login", userController.login);
+router.get("/users/:username", userController.getUser);
+router.post("/users/login", userController.login);
 router.get("/users", authMiddleware, userController.getAll);
 router.post("/users/register", userController.register);

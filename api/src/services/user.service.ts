@@ -10,6 +10,31 @@ async function getAllUsers(): Promise<User[]> {
   return users;
 }
 
+async function getUserByUsername(username: string) {
+  return await db.table<User>("users").where("username", username).first();
+}
+
+async function loginUser(
+  username: string,
+  password: string
+): Promise<{ user: User; exp: string } | { message: string }> {
+  const user = await getUserByUsername(username);
+
+  if (!user) {
+    return { message: "Invalid username!" };
+  }
+
+  if (bcrypt.compareSync(password, user.password)) {
+    user.password = "";
+    return {
+      user: user,
+      exp: process.env.TOKEN_EXP as string,
+    };
+  } else {
+    return { message: "Incorrect password!" };
+  }
+}
+
 async function registerUser(
   username: string,
   email: string,
@@ -34,4 +59,4 @@ async function registerUser(
   }
 }
 
-export default { getAllUsers, registerUser };
+export default { getAllUsers, registerUser, loginUser, getUserByUsername };
