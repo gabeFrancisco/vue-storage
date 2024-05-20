@@ -1,7 +1,8 @@
 import { Router } from "express";
-import authController from "./controllers/authController";
-
+import userController from "./controllers/user.controller";
 export const router = Router();
 
-router.get("/auth", authController.login);
-router.post("/auth/register", authController.register);
+//User endpoints
+router.get("/users/login", userController.login);
+router.get("/users", userController.getAll);
+router.post("/users/register", userController.register);

@@ -1,7 +1,5 @@
 import dotenv from "dotenv";
 import knex from "knex";
-import pg from "pg";
-const { Pool } = pg;
 
 dotenv.config();
 console.log(process.env.PG_USER);
