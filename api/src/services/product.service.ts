@@ -28,4 +28,8 @@ async function addProduct(
   }
 }
 
-export default { addProduct };
+async function getAllProducts(): Promise<Product[]> {
+  return await db.table<Product>("products");
+}
+
+export default { addProduct, getAllProducts };

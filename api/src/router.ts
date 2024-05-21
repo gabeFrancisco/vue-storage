@@ -11,4 +11,5 @@ router.post("/users/register", userController.register);
 router.get("/users/:username", userController.getUser);
 
 //Product endpoints
-router.post("/products", auth, productController.addProduct);
+router.get("/products", auth, productController.getAll);
+router.post("/products", auth, productController.add);

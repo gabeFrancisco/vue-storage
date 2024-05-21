@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { ProductDTO } from "../models/DTOs/ProductDTO";
 import productService from "../services/product.service";
 
-async function addProduct(req: Request, res: Response, next: NextFunction) {
+async function add(req: Request, res: Response, next: NextFunction) {
   try {
     const productDto: ProductDTO = {
       name: req.body.name,
@@ -19,4 +19,12 @@ async function addProduct(req: Request, res: Response, next: NextFunction) {
   }
 }
 
-export default { addProduct };
+async function getAll(req: Request, res: Response, next: NextFunction) {
+  try {
+    return res.json(await productService.getAllProducts());
+  } catch (err) {
+    next(err);
+  }
+}
+
+export default { add, getAll };
