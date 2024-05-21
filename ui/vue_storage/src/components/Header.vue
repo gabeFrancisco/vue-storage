@@ -1,13 +1,15 @@
 <script setup>
 
-import { onBeforeMount } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 import { useUserStore } from '@/store/userStore';
 import { useRouter } from 'vue-router';
+import api from '@/api';
 
 const userStore = useUserStore();
 const router = useRouter();
+const products = ref([])
 
-onBeforeMount(() => {
+onBeforeMount(async () => {
     userStore.loadUser();
 })
 
@@ -15,6 +17,8 @@ function handleSignout() {
     userStore.signout();
     router.replace("/")
 }
+
+
 </script>
 
 <template>
